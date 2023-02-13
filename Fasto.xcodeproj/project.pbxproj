@@ -12,7 +12,6 @@
 		B27886A72995363A0086B87C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27886A62995363A0086B87C /* Images.swift */; };
 		B289EFFD299168B100C6DC3D /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289EFFC299168B100C6DC3D /* DateFormatterExtension.swift */; };
 		B28C860F292BAC6600951E7B /* DatePeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28C860E292BAC6600951E7B /* DatePeriodView.swift */; };
-		B28C8611292BAE3F00951E7B /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28C8610292BAE3F00951E7B /* ActionButtonView.swift */; };
 		B28C8613292BB09400951E7B /* DurationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28C8612292BB09400951E7B /* DurationButtonView.swift */; };
 		B28C8615292BB18B00951E7B /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28C8614292BB18B00951E7B /* CircleProgressView.swift */; };
 		B28C8617292BD2CC00951E7B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28C8616292BD2CC00951E7B /* CalendarView.swift */; };
@@ -28,6 +27,9 @@
 		B2AC491328F5FBD80077DB39 /* FastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC491228F5FBD80077DB39 /* FastViewModel.swift */; };
 		B2AC491528F5FC0A0077DB39 /* ArcShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC491428F5FC0A0077DB39 /* ArcShape.swift */; };
 		B2AC491728F5FC170077DB39 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC491628F5FC170077DB39 /* Theme.swift */; };
+		B2D36C6A299A08EB00F85D0D /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D36C69299A08EB00F85D0D /* DetailsView.swift */; };
+		B2D36C6C299A2B0E00F85D0D /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D36C6B299A2B0E00F85D0D /* DetailsViewModel.swift */; };
+		B2D36C70299A711D00F85D0D /* TitleDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D36C6F299A711D00F85D0D /* TitleDatePicker.swift */; };
 		B2EE30BE299113E80086C61B /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EE30BD299113E80086C61B /* TabBarView.swift */; };
 		B2EE30C029911D6A0086C61B /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EE30BF29911D6A0086C61B /* HistoryViewModel.swift */; };
 		B2EE30C2299141160086C61B /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EE30C1299141160086C61B /* CoreDataRepository.swift */; };
@@ -44,7 +46,6 @@
 		B27886A62995363A0086B87C /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		B289EFFC299168B100C6DC3D /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
 		B28C860E292BAC6600951E7B /* DatePeriodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePeriodView.swift; sourceTree = "<group>"; };
-		B28C8610292BAE3F00951E7B /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
 		B28C8612292BB09400951E7B /* DurationButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationButtonView.swift; sourceTree = "<group>"; };
 		B28C8614292BB18B00951E7B /* CircleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
 		B28C8616292BD2CC00951E7B /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -61,6 +62,9 @@
 		B2AC491228F5FBD80077DB39 /* FastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastViewModel.swift; sourceTree = "<group>"; };
 		B2AC491428F5FC0A0077DB39 /* ArcShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcShape.swift; sourceTree = "<group>"; };
 		B2AC491628F5FC170077DB39 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		B2D36C69299A08EB00F85D0D /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		B2D36C6B299A2B0E00F85D0D /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		B2D36C6F299A711D00F85D0D /* TitleDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDatePicker.swift; sourceTree = "<group>"; };
 		B2EE30BD299113E80086C61B /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		B2EE30BF29911D6A0086C61B /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		B2EE30C1299141160086C61B /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
@@ -140,9 +144,9 @@
 				B2FFD35629255FA200AE0ACF /* PickerView.swift */,
 				B2F3CEC328F74B0B0068C076 /* DurationView.swift */,
 				B28C860E292BAC6600951E7B /* DatePeriodView.swift */,
-				B28C8610292BAE3F00951E7B /* ActionButtonView.swift */,
 				B28C8612292BB09400951E7B /* DurationButtonView.swift */,
 				B28C8614292BB18B00951E7B /* CircleProgressView.swift */,
+				B2D36C6F299A711D00F85D0D /* TitleDatePicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,6 +174,7 @@
 		B2D1E2E12923D262000EAB90 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B2D36C68299A08D400F85D0D /* Details */,
 				B2EE30BC299113D10086C61B /* TabBar */,
 				B28C8618292BD42100951E7B /* History */,
 				B2D1E2E22923D268000EAB90 /* Fast */,
@@ -194,6 +199,15 @@
 				B266F52C2992A9BC0072C068 /* TimeCalculator.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		B2D36C68299A08D400F85D0D /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				B2D36C69299A08EB00F85D0D /* DetailsView.swift */,
+				B2D36C6B299A2B0E00F85D0D /* DetailsViewModel.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		B2EE30BC299113D10086C61B /* TabBar */ = {
@@ -290,6 +304,8 @@
 				B28C8613292BB09400951E7B /* DurationButtonView.swift in Sources */,
 				B27886A72995363A0086B87C /* Images.swift in Sources */,
 				B28C861F292BDF2C00951E7B /* LineView.swift in Sources */,
+				B2D36C6A299A08EB00F85D0D /* DetailsView.swift in Sources */,
+				B2D36C6C299A2B0E00F85D0D /* DetailsViewModel.swift in Sources */,
 				B2AC48E428F5F9950077DB39 /* Fasto.xcdatamodeld in Sources */,
 				B28C8617292BD2CC00951E7B /* CalendarView.swift in Sources */,
 				B28C8615292BB18B00951E7B /* CircleProgressView.swift in Sources */,
@@ -305,8 +321,8 @@
 				B2EE30C029911D6A0086C61B /* HistoryViewModel.swift in Sources */,
 				B28C8621292BE07000951E7B /* HistoryView.swift in Sources */,
 				B2AC48DF28F5F9950077DB39 /* FastoApp.swift in Sources */,
-				B28C8611292BAE3F00951E7B /* ActionButtonView.swift in Sources */,
 				B2AC491028F5F9EE0077DB39 /* FastView.swift in Sources */,
+				B2D36C70299A711D00F85D0D /* TitleDatePicker.swift in Sources */,
 				B2AC491328F5FBD80077DB39 /* FastViewModel.swift in Sources */,
 				B2AC48E128F5F9950077DB39 /* PersistenceController.swift in Sources */,
 				B2FFD35729255FA200AE0ACF /* PickerView.swift in Sources */,
