@@ -14,19 +14,35 @@ class DetailsViewModel: ObservableObject, Identifiable {
     private let repository: CoreDataRepository<Fast>
     private let completion: (() -> ())?
     
-    @Published var startDate: Date
-    @Published var endDate: Date
+    @Published var time: String
+    @Published var startDate: Date {
+        didSet {
+            if startDate > Date() { startDate = Date() }
+            updateTime()
+        }
+    }
+    @Published var endDate: Date {
+        didSet {
+            if endDate < startDate { endDate = startDate }
+            updateTime()
+        }
+    }
     
     init(fast: Fast, repository: CoreDataRepository<Fast>, completion: (() -> ())?) {
         self.fast = fast
         self.repository = repository
-        self.startDate = fast.startDate ?? Date()
-        self.endDate = fast.endDate ?? Date()
+        let startDate = fast.startDate ?? Date()
+        let endDate = fast.endDate ?? Date()
+        self.startDate = startDate
+        self.endDate = endDate
         self.completion = completion
+        self.time = endDate.time(sinceDate: startDate)
     }
     
     func delete() {
         repository.delete(entity: fast)
+        repository.save()
+        completion?()
     }
 
     func save() {
@@ -34,6 +50,10 @@ class DetailsViewModel: ObservableObject, Identifiable {
         fast.endDate = endDate
         repository.save()
         completion?()
+    }
+    
+    private func updateTime() {
+        time = endDate.time(sinceDate: startDate)
     }
     
 }

@@ -44,12 +44,14 @@ class HistoryViewModel: ObservableObject {
     
     func onAppear() {
         intervals = repository.get()
-            .map { DateInterval(start: $0.startDate ?? Date(), end: $0.endDate ?? Date()) }
+            .compactMap {
+                guard let startDate = $0.startDate,
+                      let endDate = $0.endDate else { return nil }
+                return DateInterval(start: startDate, end: endDate)
+            }
             .sorted { $0.start < $1.start }
-        if let start = intervals.first?.start {
-            dateInterval = DateInterval(start: start,
-                                        end: Date())
-        }
+        dateInterval = DateInterval(start: intervals.first?.start ?? Date(),
+                                    end: Date())
         
     }
     

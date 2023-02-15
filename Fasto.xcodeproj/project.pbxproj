@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B266F52D2992A9BC0072C068 /* TimeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266F52C2992A9BC0072C068 /* TimeCalculator.swift */; };
 		B27886A529951F390086B87C /* CalendarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27886A429951F390086B87C /* CalendarExtension.swift */; };
 		B27886A72995363A0086B87C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27886A62995363A0086B87C /* Images.swift */; };
 		B289EFFD299168B100C6DC3D /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289EFFC299168B100C6DC3D /* DateFormatterExtension.swift */; };
@@ -41,7 +40,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B266F52C2992A9BC0072C068 /* TimeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCalculator.swift; sourceTree = "<group>"; };
 		B27886A429951F390086B87C /* CalendarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtension.swift; sourceTree = "<group>"; };
 		B27886A62995363A0086B87C /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		B289EFFC299168B100C6DC3D /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
@@ -196,7 +194,6 @@
 			children = (
 				B2AC48E028F5F9950077DB39 /* PersistenceController.swift */,
 				B2EE30C1299141160086C61B /* CoreDataRepository.swift */,
-				B266F52C2992A9BC0072C068 /* TimeCalculator.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -299,7 +296,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2EE30C2299141160086C61B /* CoreDataRepository.swift in Sources */,
-				B266F52D2992A9BC0072C068 /* TimeCalculator.swift in Sources */,
 				B2FC12AD297178E400DA1F72 /* DateExtension.swift in Sources */,
 				B28C8613292BB09400951E7B /* DurationButtonView.swift in Sources */,
 				B27886A72995363A0086B87C /* Images.swift in Sources */,

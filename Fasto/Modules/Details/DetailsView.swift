@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailsView: View {
     
-    @State var viewModel: DetailsViewModel
+    @EnvironmentObject var viewModel: DetailsViewModel
     
     @Environment(\.dismiss) private var dismiss
     
@@ -26,6 +26,18 @@ struct DetailsView: View {
                     }
                 }
                 .frame(height: Constants.buttonHeight)
+                
+                ZStack {
+                    let size = proxy.size.height / 3
+                    Color.accentColor
+                        .frame(width: size, height: size)
+                        .cornerRadius(size / 2)
+                    Text(viewModel.time)
+                        .font(.largeTitle)
+                        .bold()
+                }
+                
+                Spacer()
                 
                 TitleDatePicker(title: Strings.startDate.localized,
                                 selection: $viewModel.startDate)

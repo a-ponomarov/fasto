@@ -27,7 +27,7 @@ struct HistoryView: View {
                 viewModel.onAppear()
             }
             .sheet(item: $viewModel.detailViewModel) { detailViewModel in
-                DetailsView(viewModel: detailViewModel)
+                DetailsView().environmentObject(detailViewModel)
             }
         }
         .padding()
