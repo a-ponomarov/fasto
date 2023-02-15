@@ -9,7 +9,6 @@ import Foundation
 
 enum Strings: String {
     case startFast = "Start your fast now!"
-    case zeroTime = "00:00:00"
     case elapsedTime = "Elapsed Time"
     case startDate = "START DATE"
     case finishDate = "FINISH DATE"

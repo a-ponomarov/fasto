@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B21B4919299CE78E00778326 /* TimeCircleView in Frameworks */ = {isa = PBXBuildFile; productRef = B21B4918299CE78E00778326 /* TimeCircleView */; };
 		B27886A529951F390086B87C /* CalendarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27886A429951F390086B87C /* CalendarExtension.swift */; };
 		B27886A72995363A0086B87C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27886A62995363A0086B87C /* Images.swift */; };
 		B289EFFD299168B100C6DC3D /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289EFFC299168B100C6DC3D /* DateFormatterExtension.swift */; };
 		B28C860F292BAC6600951E7B /* DatePeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28C860E292BAC6600951E7B /* DatePeriodView.swift */; };
 		B28C8613292BB09400951E7B /* DurationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28C8612292BB09400951E7B /* DurationButtonView.swift */; };
-		B28C8615292BB18B00951E7B /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28C8614292BB18B00951E7B /* CircleProgressView.swift */; };
 		B28C8617292BD2CC00951E7B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28C8616292BD2CC00951E7B /* CalendarView.swift */; };
 		B28C861D292BD77C00951E7B /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28C861C292BD77C00951E7B /* DateView.swift */; };
 		B28C861F292BDF2C00951E7B /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28C861E292BDF2C00951E7B /* LineView.swift */; };
@@ -40,12 +40,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B21B4917299CE78800778326 /* TimeCircleView */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TimeCircleView; sourceTree = "<group>"; };
 		B27886A429951F390086B87C /* CalendarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtension.swift; sourceTree = "<group>"; };
 		B27886A62995363A0086B87C /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		B289EFFC299168B100C6DC3D /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
 		B28C860E292BAC6600951E7B /* DatePeriodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePeriodView.swift; sourceTree = "<group>"; };
 		B28C8612292BB09400951E7B /* DurationButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationButtonView.swift; sourceTree = "<group>"; };
-		B28C8614292BB18B00951E7B /* CircleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
 		B28C8616292BD2CC00951E7B /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		B28C861C292BD77C00951E7B /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		B28C861E292BDF2C00951E7B /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
@@ -78,12 +78,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B21B4919299CE78E00778326 /* TimeCircleView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B24C0D9D299CD77C00C8C9AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B21B4917299CE78800778326 /* TimeCircleView */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B28C8618292BD42100951E7B /* History */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +107,7 @@
 			children = (
 				B2AC48DD28F5F9950077DB39 /* Fasto */,
 				B2AC48DC28F5F9950077DB39 /* Products */,
+				B24C0D9D299CD77C00C8C9AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,7 +153,6 @@
 				B2F3CEC328F74B0B0068C076 /* DurationView.swift */,
 				B28C860E292BAC6600951E7B /* DatePeriodView.swift */,
 				B28C8612292BB09400951E7B /* DurationButtonView.swift */,
-				B28C8614292BB18B00951E7B /* CircleProgressView.swift */,
 				B2D36C6F299A711D00F85D0D /* TitleDatePicker.swift */,
 			);
 			path = Views;
@@ -241,6 +250,9 @@
 			dependencies = (
 			);
 			name = Fasto;
+			packageProductDependencies = (
+				B21B4918299CE78E00778326 /* TimeCircleView */,
+			);
 			productName = Fasto;
 			productReference = B2AC48DB28F5F9950077DB39 /* Fasto.app */;
 			productType = "com.apple.product-type.application";
@@ -304,7 +316,6 @@
 				B2D36C6C299A2B0E00F85D0D /* DetailsViewModel.swift in Sources */,
 				B2AC48E428F5F9950077DB39 /* Fasto.xcdatamodeld in Sources */,
 				B28C8617292BD2CC00951E7B /* CalendarView.swift in Sources */,
-				B28C8615292BB18B00951E7B /* CircleProgressView.swift in Sources */,
 				B2EE30BE299113E80086C61B /* TabBarView.swift in Sources */,
 				B2FFD359292566EA00AE0ACF /* Constants.swift in Sources */,
 				B27886A529951F390086B87C /* CalendarExtension.swift in Sources */,
@@ -459,7 +470,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
@@ -497,7 +508,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
@@ -536,6 +547,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B21B4918299CE78E00778326 /* TimeCircleView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TimeCircleView;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		B2AC48E228F5F9950077DB39 /* Fasto.xcdatamodeld */ = {

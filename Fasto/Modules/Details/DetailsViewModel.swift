@@ -36,7 +36,7 @@ class DetailsViewModel: ObservableObject, Identifiable {
         self.startDate = startDate
         self.endDate = endDate
         self.completion = completion
-        self.time = endDate.time(sinceDate: startDate)
+        self.time = endDate.hours(sinceDate: startDate).description
     }
     
     func delete() {
@@ -53,7 +53,7 @@ class DetailsViewModel: ObservableObject, Identifiable {
     }
     
     private func updateTime() {
-        time = endDate.time(sinceDate: startDate)
+        time = endDate.hours(sinceDate: startDate).description
     }
     
 }

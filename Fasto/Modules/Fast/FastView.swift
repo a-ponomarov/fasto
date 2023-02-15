@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TimeCircleView
 
 struct FastView: View {
     
@@ -18,14 +19,11 @@ struct FastView: View {
                 ZStack {
                     DurationButtonView(duration: $viewModel.duration)
                         .onTapGesture { viewModel.presentDuration.toggle() }
-                    CircleProgressView(arcs: $viewModel.arcs)
-                    VStack {
-                        Text(viewModel.actionText)
-                            .font(.system(size: Constants.actionTextFontSize))
-                        Text(viewModel.timeText)
-                            .font(.system(size: Constants.timeTextFontSize))
-                            .bold()
-                    }
+                    TimeCircleView(title: viewModel.actionText,
+                                   isActive: viewModel.isActive,
+                                   backgroundColor: Theme.background.color,
+                                   sinceDate: viewModel.startDate,
+                                   duration: viewModel.duration)
                 }
                 PeriodView.padding(.bottom)
                 Button { viewModel.isActive.toggle() } label: {
@@ -43,7 +41,7 @@ struct FastView: View {
         }
         .sheet(isPresented: $viewModel.presentDuration) {
             DurationView(duration: $viewModel.duration)
-                //.presentationDetents([.height(Constants.sheetHeight)])
+                .presentationDetents([.height(Constants.sheetHeight)])
         }
         .sheet(isPresented: $viewModel.presentDatePicker) {
             DatePicker(String(),
@@ -75,8 +73,6 @@ struct FastView: View {
     }
     
     private enum Constants {
-        static let actionTextFontSize: CGFloat = 22
-        static let timeTextFontSize: CGFloat = 44
         static let sheetHeight: CGFloat = 210
         
         enum Button {

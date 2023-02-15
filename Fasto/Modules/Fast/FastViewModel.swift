@@ -15,9 +15,6 @@ class FastViewModel: ObservableObject {
     
     @Published var actionButtonText: String = Strings.start.localized
     @Published var actionText: String = Strings.startFast.localized
-    @Published var timeText: String = Strings.zeroTime.localized
-    
-    @Published var arcs: [Arc] = []
     
     @Published var endDate: Date
     
@@ -39,14 +36,13 @@ class FastViewModel: ObservableObject {
     
     @Published var isActive = false {
         didSet {
-            isActive ? start() : stop()
+            isActive ? start() : end()
             actionText = isActive ? Strings.elapsedTime.localized : Strings.startFast.localized
             actionButtonText = isActive ? Strings.stop.localized : Strings.start.localized
         }
     }
     
     private var fast: Fast?
-    private var timer: Timer?
     
     private let repository: CoreDataRepository<Fast>
     
@@ -78,40 +74,12 @@ class FastViewModel: ObservableObject {
             repository.save()
             self.fast = fast
         }
-        scheduleTimer()
     }
     
-    private func stop() {
-        stopTimer()
-        endFast()
-        arcs = []
-        timeText = Strings.zeroTime.localized
-    }
-    
-    private func endFast() {
+    private func end() {
         fast?.endDate = Date()
         repository.save()
         fast = nil
-    }
-    
-    private func scheduleTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1,
-                                     target: self,
-                                     selector: #selector(update),
-                                     userInfo: nil,
-                                     repeats: true)
-    }
-    
-    @objc private func update() {
-        guard duration > 0 else { return }
-        let now = Date()
-        timeText = now.time(sinceDate: startDate)
-        arcs = now.arcs(sinceDate: startDate, duration: duration)
-    }
-
-    private func stopTimer() {
-        timer?.invalidate()
-        timer = nil
     }
     
 }
