@@ -23,17 +23,15 @@ class FastViewModel: ObservableObject {
     
     @Published var startDate: Date {
         didSet {
-            if startDate > Date() {
-                startDate = Date()
-            }
-            endDate = startDate.addingTimeInterval(TimeInterval(duration * Constants.secondsInHour))
+            if startDate > Date() { startDate = Date() }
+            endDate = startDate.addHours(duration)
             fast?.startDate = startDate
         }
     }
     
     @Published var duration: Int = Constants.intermittentFastDuration {
         didSet {
-            let newEndDate = startDate.addingTimeInterval(TimeInterval(duration * Constants.secondsInHour))
+            let newEndDate = startDate.addHours(duration)
             guard endDate != newEndDate else { return }
             endDate = newEndDate
         }
@@ -106,9 +104,9 @@ class FastViewModel: ObservableObject {
     
     @objc private func update() {
         guard duration > 0 else { return }
-        let elapsedSeconds = Int(Date().timeIntervalSince1970 - startDate.timeIntervalSince1970)
-        timeText = TimeCalculator.time(elapsedSeconds)
-        arcs = TimeCalculator.arcs(elapsedSeconds: elapsedSeconds, duration: duration)
+        let now = Date()
+        timeText = now.time(sinceDate: startDate)
+        arcs = now.arcs(sinceDate: startDate, duration: duration)
     }
 
     private func stopTimer() {

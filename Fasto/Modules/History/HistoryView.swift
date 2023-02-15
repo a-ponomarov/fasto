@@ -19,11 +19,18 @@ struct HistoryView: View {
                     DateView(date: date,
                             interval: viewModel.interval(date: date))
                         .frame(height: dayHeight)
+                        .onTapGesture {
+                            viewModel.didSelectDate(date: date)
+                        }
                 }.frame(width: width)
             }.onAppear {
                 viewModel.onAppear()
             }
-        }.padding()
+            .sheet(item: $viewModel.detailViewModel) { detailViewModel in
+                DetailsView().environmentObject(detailViewModel)
+            }
+        }
+        .padding()
     }
     
     private let dayHeight: CGFloat = 55

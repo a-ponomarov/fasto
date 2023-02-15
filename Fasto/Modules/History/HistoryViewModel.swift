@@ -11,6 +11,8 @@ import CoreData
 @MainActor
 class HistoryViewModel: ObservableObject {
     
+    @Published var detailViewModel: DetailsViewModel?
+    
     private var intervals: [DateInterval] = []
     
     private let repository: CoreDataRepository<Fast>
@@ -29,14 +31,28 @@ class HistoryViewModel: ObservableObject {
         }
     }
     
+    func didSelectDate(date: Date) {
+        guard let startDate = interval(date: date)?.start else { return }
+        let predicate = NSPredicate(format: Constants.startDatePredicate,
+                                    startDate as CVarArg)
+        if let selectedFast = repository.get(predicate: predicate).first {
+            detailViewModel = DetailsViewModel(fast: selectedFast, repository: repository) {
+                self.onAppear()
+            }
+        }
+    }
+    
     func onAppear() {
         intervals = repository.get()
-            .map { DateInterval(start: $0.startDate ?? Date(), end: $0.endDate ?? Date()) }
+            .compactMap {
+                guard let startDate = $0.startDate,
+                      let endDate = $0.endDate else { return nil }
+                return DateInterval(start: startDate, end: endDate)
+            }
             .sorted { $0.start < $1.start }
-        if let start = intervals.first?.start {
-            dateInterval = DateInterval(start: start,
-                                        end: Date())
-        }
+        dateInterval = DateInterval(start: intervals.first?.start ?? Date(),
+                                    end: Date())
         
     }
+    
 }

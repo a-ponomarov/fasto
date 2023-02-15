@@ -12,9 +12,13 @@ enum Strings: String {
     case zeroTime = "00:00:00"
     case elapsedTime = "Elapsed Time"
     case startDate = "START DATE"
+    case finishDate = "FINISH DATE"
+    case cancel = "Cancel"
     case goal = "GOAL"
     case start = "Start"
     case stop = "Stop"
+    case delete = "Delete"
+    case update = "Update"
     case today = "Today"
     case history = "History"
     case days

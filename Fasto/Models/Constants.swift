@@ -20,4 +20,5 @@ enum Constants {
     static let firstTwoDigitNumber: Int = 10
     
     static let notFinishedPredicate = "endDate == nil"
+    static let startDatePredicate = "startDate == %@"
 }

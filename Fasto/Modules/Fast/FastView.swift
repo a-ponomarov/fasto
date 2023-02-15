@@ -28,8 +28,14 @@ struct FastView: View {
                     }
                 }
                 PeriodView.padding(.bottom)
-                ActionButtonView(title: $viewModel.actionButtonText)
-                    .onTapGesture { viewModel.isActive.toggle() }
+                Button { viewModel.isActive.toggle() } label: {
+                    Text(viewModel.actionButtonText)
+                        .frame(width: Constants.Button.width, height: Constants.Button.height)
+                        .font(.system(size: Constants.Button.fontSize, weight: .semibold))
+                        .background(Color.accentColor)
+                        .foregroundColor(.black)
+                        .cornerRadius(Constants.Button.cornerRadius)
+                }
             }.padding()
         }
         .onAppear {
@@ -72,6 +78,13 @@ struct FastView: View {
         static let actionTextFontSize: CGFloat = 22
         static let timeTextFontSize: CGFloat = 44
         static let sheetHeight: CGFloat = 210
+        
+        enum Button {
+            static let width: CGFloat = 330
+            static let height: CGFloat = 55
+            static let fontSize: CGFloat = 28
+            static let cornerRadius: CGFloat = 25
+        }
     }
     
 }
