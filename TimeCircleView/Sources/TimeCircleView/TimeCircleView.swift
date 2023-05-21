@@ -17,7 +17,10 @@ public struct TimeCircleView: View {
     private let sinceDate: Date
     private let isActive: Bool
     
-    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    private let timer = Timer
+        .publish(every: 1, on: .main, in: .common)
+        .autoconnect()
+        .prepend(Date())
     
     @State private var arcs: [Arc] = []
     @State private var time: String = Constants.zeroTime

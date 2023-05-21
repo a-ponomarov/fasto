@@ -30,15 +30,15 @@ struct CalendarView<DateView: View>: View {
     }
 
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             LazyVGrid(columns: columns, alignment: .trailing, spacing: spacing) {
                 ForEach(months, id: \.self) { month in
                     Section(header: header(for: month)) {
                         ForEach(days[month, default: []], id: \.self) { date in
                             if calendar.isDate(date, equalTo: month, toGranularity: .month) {
-                                content(date).id(date)
+                                content(date)
                             } else {
-                                content(date).hidden()
+                                EmptyView()
                             }
                         }
                     }

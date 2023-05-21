@@ -14,15 +14,22 @@ struct HistoryView: View {
     var body: some View {
         GeometryReader { proxy in
             let width = proxy.size.width / CGFloat(Constants.daysInWeek)
-            CalendarView(interval: $viewModel.dateInterval) { date in
-                ZStack {
-                    DateView(date: date,
-                            interval: viewModel.interval(date: date))
-                        .frame(height: dayHeight)
-                        .onTapGesture {
-                            viewModel.didSelectDate(date: date)
-                        }
-                }.frame(width: width)
+            CalendarView(interval: $viewModel.periodDateInterval) { date in
+                VStack {
+                    Text("\(date.day)")
+                    if let interval = viewModel.fast(date: date)?.interval {
+                        LineView(date: date,
+                                 dateInterval: interval)
+                            .frame(height: lineHeight)
+                    } else {
+                        EmptyView()
+                    }
+                    Spacer()
+                }
+                .frame(width: width, height: dayHeight)
+                .onTapGesture {
+                    viewModel.didSelectDate(date: date)
+                }
             }.onAppear {
                 viewModel.onAppear()
             }
@@ -34,6 +41,7 @@ struct HistoryView: View {
     }
     
     private let dayHeight: CGFloat = 55
+    private let lineHeight: CGFloat = 13
     
 }
 

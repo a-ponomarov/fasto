@@ -7,7 +7,7 @@
 
 import CoreData
 
-class PersistenceController {
+final class PersistenceController {
 
     private let container: NSPersistentCloudKitContainer
     

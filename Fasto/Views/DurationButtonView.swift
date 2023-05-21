@@ -16,7 +16,7 @@ struct DurationButtonView: View {
             HStack() {
                 Spacer()
                 Capsule()
-                    .foregroundColor(Color.green)
+                    .foregroundColor(Color.accentColor)
                     .frame(width: Constants.width, height: Constants.height)
                     .overlay {
                         Text(String(format: Strings.shortHours.localized, duration.description))

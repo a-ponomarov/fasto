@@ -66,20 +66,26 @@ class FastViewModel: ObservableObject {
     }
     
     private func start() {
-        if fast == nil {
-            startDate = Date()
-            let fast = repository.create()
-            fast.startDate = startDate
-            fast.estimatedDuration = Int32(duration)
-            repository.save()
-            self.fast = fast
-        }
+        guard fast == nil else { return }
+        startDate = Date()
+        let fast = repository.create()
+        fast.startDate = startDate
+        fast.estimatedDuration = Int32(duration)
+        repository.save()
+        self.fast = fast
     }
     
     private func end() {
-        fast?.endDate = Date()
+        guard let fast, let startDate = fast.startDate else { return }
+        let endDate = Date()
+        let secondsDuration = Int(endDate.timeIntervalSince(startDate))
+        if secondsDuration > Constants.secondsInHour {
+            fast.endDate = endDate
+        } else {
+            repository.delete(entity: fast)
+        }
         repository.save()
-        fast = nil
+        self.fast = nil
     }
     
 }

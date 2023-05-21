@@ -26,7 +26,6 @@ extension Date {
     
     func hours(sinceDate: Date) -> Int {
         let elapsedSeconds = Int(timeIntervalSince1970 - sinceDate.timeIntervalSince1970)
-        let elapsedMinutes = elapsedSeconds / Constants.secondsInMinute
         return elapsedSeconds / Constants.secondsInHour
     }
     

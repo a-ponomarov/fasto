@@ -8,12 +8,26 @@
 import Foundation
 import CoreData
 
+extension Fast {
+    
+    var interval: DateInterval? {
+        guard let startDate = startDate,
+              let endDate = endDate else { return nil }
+        return DateInterval(start: startDate, end: endDate)
+    }
+}
+
 @MainActor
 class HistoryViewModel: ObservableObject {
     
     @Published var detailViewModel: DetailsViewModel?
     
-    private var intervals: [DateInterval] = []
+    private var fasts: [Fast] = [] {
+        didSet {
+            let startDate = fasts.first?.startDate ?? Date()
+            periodDateInterval = DateInterval(start: startDate, end: Date())
+        }
+    }
     
     private let repository: CoreDataRepository<Fast>
     
@@ -21,38 +35,32 @@ class HistoryViewModel: ObservableObject {
         self.repository = repository
     }
     
-    @Published var dateInterval = DateInterval()
+    @Published var periodDateInterval = DateInterval()
     
-    func interval(date: Date) -> DateInterval? {
-        return intervals.first { interval in
-            interval.contains(date) ||
-            date.inSameDay(interval.start) ||
-            date.inSameDay(interval.end)
+    func fast(date: Date) -> Fast? {
+        return fasts.first { fast in
+            guard let interval = fast.interval else { return false }
+            let contains = date >= interval.start && date <= interval.end
+            let inSameDayAsStart = date.inSameDay(interval.start)
+            let inSameDayAsEnd = date.inSameDay(interval.end)
+            return contains || inSameDayAsStart || inSameDayAsEnd
         }
     }
     
     func didSelectDate(date: Date) {
-        guard let startDate = interval(date: date)?.start else { return }
-        let predicate = NSPredicate(format: Constants.startDatePredicate,
-                                    startDate as CVarArg)
-        if let selectedFast = repository.get(predicate: predicate).first {
-            detailViewModel = DetailsViewModel(fast: selectedFast, repository: repository) {
-                self.onAppear()
-            }
+        guard let startDate = fast(date: date)?.startDate else { return }
+        let predicate = NSPredicate(format: Constants.startDatePredicate, startDate as CVarArg)
+        guard let selectedFast = repository.get(predicate: predicate).first else { return }
+        detailViewModel = DetailsViewModel(fast: selectedFast, repository: repository) {
+            self.onAppear()
         }
     }
     
     func onAppear() {
-        intervals = repository.get()
-            .compactMap {
-                guard let startDate = $0.startDate,
-                      let endDate = $0.endDate else { return nil }
-                return DateInterval(start: startDate, end: endDate)
-            }
-            .sorted { $0.start < $1.start }
-        dateInterval = DateInterval(start: intervals.first?.start ?? Date(),
-                                    end: Date())
-        
+        fasts = repository.get(sortDescriptors:
+                                [NSSortDescriptor(key: Constants.startDateKey,
+                                                  ascending: true)]
+        )
     }
     
 }

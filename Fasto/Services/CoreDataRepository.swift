@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class CoreDataRepository<T: NSManagedObject> {
+final class CoreDataRepository<T: NSManagedObject> {
     
     typealias Entity = T
     

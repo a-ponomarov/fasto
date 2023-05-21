@@ -19,4 +19,5 @@ enum Constants {
     
     static let notFinishedPredicate = "endDate == nil"
     static let startDatePredicate = "startDate == %@"
+    static let startDateKey = "startDate"
 }
