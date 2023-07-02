@@ -9,12 +9,6 @@ import Foundation
 
 extension DateFormatter {
     
-    static let monthAndYear: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.setLocalizedDateFormatFromTemplate("MMM yyyy")
-        return formatter
-    }()
-    
     static let shortStyle: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .short

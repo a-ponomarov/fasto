@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B21B4919299CE78E00778326 /* TimeCircleView in Frameworks */ = {isa = PBXBuildFile; productRef = B21B4918299CE78E00778326 /* TimeCircleView */; };
 		B23402122A1A5147001FF93E /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23402112A1A5147001FF93E /* RoundedCorner.swift */; };
 		B23402142A1A5162001FF93E /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23402132A1A5162001FF93E /* ViewExtensions.swift */; };
+		B236C66B2A5155C60082BA26 /* CalendarView in Frameworks */ = {isa = PBXBuildFile; productRef = B236C66A2A5155C60082BA26 /* CalendarView */; };
+		B236C66D2A5155C90082BA26 /* TimeCircleView in Frameworks */ = {isa = PBXBuildFile; productRef = B236C66C2A5155C90082BA26 /* TimeCircleView */; };
 		B27886A529951F390086B87C /* CalendarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27886A429951F390086B87C /* CalendarExtension.swift */; };
 		B27886A72995363A0086B87C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27886A62995363A0086B87C /* Images.swift */; };
 		B289EFFD299168B100C6DC3D /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289EFFC299168B100C6DC3D /* DateFormatterExtension.swift */; };
 		B28C860F292BAC6600951E7B /* DatePeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28C860E292BAC6600951E7B /* DatePeriodView.swift */; };
 		B28C8613292BB09400951E7B /* DurationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28C8612292BB09400951E7B /* DurationButtonView.swift */; };
-		B28C8617292BD2CC00951E7B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28C8616292BD2CC00951E7B /* CalendarView.swift */; };
 		B28C861F292BDF2C00951E7B /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28C861E292BDF2C00951E7B /* LineView.swift */; };
 		B28C8621292BE07000951E7B /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28C8620292BE07000951E7B /* HistoryView.swift */; };
 		B2AC48DF28F5F9950077DB39 /* FastoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC48DE28F5F9950077DB39 /* FastoApp.swift */; };
@@ -43,12 +43,12 @@
 		B21B4917299CE78800778326 /* TimeCircleView */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TimeCircleView; sourceTree = "<group>"; };
 		B23402112A1A5147001FF93E /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		B23402132A1A5162001FF93E /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		B236C6662A5154580082BA26 /* CalendarView */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CalendarView; sourceTree = "<group>"; };
 		B27886A429951F390086B87C /* CalendarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtension.swift; sourceTree = "<group>"; };
 		B27886A62995363A0086B87C /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		B289EFFC299168B100C6DC3D /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
 		B28C860E292BAC6600951E7B /* DatePeriodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePeriodView.swift; sourceTree = "<group>"; };
 		B28C8612292BB09400951E7B /* DurationButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationButtonView.swift; sourceTree = "<group>"; };
-		B28C8616292BD2CC00951E7B /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		B28C861E292BDF2C00951E7B /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		B28C8620292BE07000951E7B /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		B2AC48DB28F5F9950077DB39 /* Fasto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fasto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,17 +78,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B21B4919299CE78E00778326 /* TimeCircleView in Frameworks */,
+				B236C66D2A5155C90082BA26 /* TimeCircleView in Frameworks */,
+				B236C66B2A5155C60082BA26 /* CalendarView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B24C0D9D299CD77C00C8C9AC /* Frameworks */ = {
+		B236C6652A5154580082BA26 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
 				B21B4917299CE78800778326 /* TimeCircleView */,
+				B236C6662A5154580082BA26 /* CalendarView */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		B236C6692A5155C60082BA26 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -105,9 +114,10 @@
 		B2AC48D228F5F9950077DB39 = {
 			isa = PBXGroup;
 			children = (
+				B236C6652A5154580082BA26 /* Packages */,
 				B2AC48DD28F5F9950077DB39 /* Fasto */,
 				B2AC48DC28F5F9950077DB39 /* Products */,
-				B24C0D9D299CD77C00C8C9AC /* Frameworks */,
+				B236C6692A5155C60082BA26 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				B28C861E292BDF2C00951E7B /* LineView.swift */,
-				B28C8616292BD2CC00951E7B /* CalendarView.swift */,
 				B2FFD35629255FA200AE0ACF /* PickerView.swift */,
 				B2F3CEC328F74B0B0068C076 /* DurationView.swift */,
 				B28C860E292BAC6600951E7B /* DatePeriodView.swift */,
@@ -251,7 +260,8 @@
 			);
 			name = Fasto;
 			packageProductDependencies = (
-				B21B4918299CE78E00778326 /* TimeCircleView */,
+				B236C66A2A5155C60082BA26 /* CalendarView */,
+				B236C66C2A5155C90082BA26 /* TimeCircleView */,
 			);
 			productName = Fasto;
 			productReference = B2AC48DB28F5F9950077DB39 /* Fasto.app */;
@@ -316,7 +326,6 @@
 				B2D36C6A299A08EB00F85D0D /* DetailsView.swift in Sources */,
 				B2D36C6C299A2B0E00F85D0D /* DetailsViewModel.swift in Sources */,
 				B2AC48E428F5F9950077DB39 /* Fasto.xcdatamodeld in Sources */,
-				B28C8617292BD2CC00951E7B /* CalendarView.swift in Sources */,
 				B2EE30BE299113E80086C61B /* TabBarView.swift in Sources */,
 				B2FFD359292566EA00AE0ACF /* Constants.swift in Sources */,
 				B27886A529951F390086B87C /* CalendarExtension.swift in Sources */,
@@ -551,7 +560,11 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B21B4918299CE78E00778326 /* TimeCircleView */ = {
+		B236C66A2A5155C60082BA26 /* CalendarView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CalendarView;
+		};
+		B236C66C2A5155C90082BA26 /* TimeCircleView */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TimeCircleView;
 		};
