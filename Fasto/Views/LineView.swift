@@ -11,7 +11,7 @@ struct LineView: View {
     
     private let x: CGFloat
     private let progress: CGFloat
-    private let corners: UIRectCorner
+    private let corners: RectCorner
     
     init(x: CGFloat, progress: CGFloat) {
         self.x = x

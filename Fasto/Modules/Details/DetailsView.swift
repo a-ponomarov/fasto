@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TimeCircleView
 
 struct DetailsView: View {
     
@@ -14,44 +15,38 @@ struct DetailsView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        GeometryReader { proxy in
-            VStack {
-                HStack {
-                    Button { action(action: .cancel) } label: {
-                        Text(Strings.cancel.localized)
-                    }
-                    Spacer()
-                    Button { action(action: .update) } label: {
-                        Text(Strings.update.localized)
-                    }
+        VStack {
+            HStack {
+                Button { action(action: .cancel) } label: {
+                    Text(Strings.cancel.localized)
                 }
-                .frame(height: Constants.buttonHeight)
-                
-                ZStack {
-                    let size = proxy.size.height / 3
-                    Color.accentColor
-                        .frame(width: size, height: size)
-                        .cornerRadius(size / 2)
-                    Text(viewModel.time)
-                        .font(.largeTitle)
-                        .bold()
-                }
-                
                 Spacer()
-                
-                TitleDatePicker(title: Strings.startDate.localized,
-                                selection: $viewModel.startDate)
-                TitleDatePicker(title: Strings.finishDate.localized,
-                                selection: $viewModel.endDate)
-                
-                Button { action(action: .delete) } label: {
-                    Text(Strings.delete.localized)
-                        .foregroundColor(.red)
+                Button { action(action: .update) } label: {
+                    Text(Strings.update.localized)
                 }
-                .frame(height: Constants.buttonHeight)
-            }.padding()
+            }
+            .frame(height: Constants.buttonHeight)
             
-        }
+            TimeCircleView(title: "128h",
+                           isActive: false,
+                           backgroundColor: .yellow,
+                           sinceDate: viewModel.startDate,
+                           duration: viewModel.time)
+            .frame(minWidth: 220, minHeight: 220)
+
+            Spacer()
+            
+            TitleDatePicker(title: Strings.startDate.localized,
+                            selection: $viewModel.startDate)
+            TitleDatePicker(title: Strings.finishDate.localized,
+                            selection: $viewModel.endDate)
+            
+            Button { action(action: .delete) } label: {
+                Text(Strings.delete.localized)
+                    .foregroundColor(.red)
+            }
+            .frame(height: Constants.buttonHeight)
+        }.padding()
     }
     
     enum Constants {

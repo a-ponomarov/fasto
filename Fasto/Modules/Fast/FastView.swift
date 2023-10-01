@@ -13,41 +13,44 @@ struct FastView: View {
     @EnvironmentObject var viewModel: FastViewModel
     
     var body: some View {
-        ZStack() {
-            VStack() {
-                Spacer()
-                ZStack {
-                    DurationButtonView(duration: $viewModel.duration)
-                        .onTapGesture { viewModel.presentDuration.toggle() }
-                    TimeCircleView(title: viewModel.actionText,
-                                   isActive: viewModel.isActive,
-                                   backgroundColor: Theme.background.color,
-                                   sinceDate: viewModel.startDate,
-                                   duration: viewModel.duration)
-                }
-                PeriodView.padding(.bottom)
-                Button { viewModel.isActive.toggle() } label: {
+        GeometryReader { proxy in
+            ZStack() {
+                VStack() {
+                    Spacer()
+                    ZStack {
+                        DurationButtonView(duration: $viewModel.duration)
+                            .onTapGesture { viewModel.presentDuration.toggle() }
+                        TimeCircleView(title: viewModel.actionText,
+                                       isActive: viewModel.isActive,
+                                       backgroundColor: Theme.background.color,
+                                       sinceDate: viewModel.startDate,
+                                       duration: viewModel.duration)
+                    }
+                    PeriodView.padding(.bottom)
                     Text(viewModel.actionButtonText)
-                        .frame(width: Constants.Button.width, height: Constants.Button.height)
+                        .frame(width: proxy.size.width * 0.88, height: Constants.Button.height)
                         .font(.system(size: Constants.Button.fontSize, weight: .semibold))
                         .background(Color.accentColor)
                         .foregroundColor(.black)
                         .cornerRadius(Constants.Button.cornerRadius)
-                }
-            }.padding()
+                        .onTapGesture {
+                            viewModel.isActive.toggle()
+                        }
+                }.padding()
+            }
+            .onAppear {
+                viewModel.restore()
+            }
+            .sheet(isPresented: $viewModel.presentDuration) {
+                DurationView(width: proxy.size.width,
+                             duration: $viewModel.duration)
+                    .presentationDetents([.height(Constants.sheetHeight)])
+            }
+            .sheet(isPresented: $viewModel.presentDatePicker) {
+                DatePickerView(startDate: $viewModel.startDate)
+            }
         }
-        .onAppear {
-            viewModel.restore()
-        }
-        .sheet(isPresented: $viewModel.presentDuration) {
-            DurationView(duration: $viewModel.duration)
-                .presentationDetents([.height(Constants.sheetHeight)])
-        }
-        .sheet(isPresented: $viewModel.presentDatePicker) {
-            DatePicker(String(),
-                       selection: $viewModel.startDate)
-                .datePickerStyle(.graphical)
-        }
+        
     }
     
     var PeriodView: some View {
@@ -76,10 +79,9 @@ struct FastView: View {
         static let sheetHeight: CGFloat = 210
         
         enum Button {
-            static let width: CGFloat = 330
             static let height: CGFloat = 55
             static let fontSize: CGFloat = 28
-            static let cornerRadius: CGFloat = 25
+            static let cornerRadius: CGFloat = height / 2
         }
     }
     

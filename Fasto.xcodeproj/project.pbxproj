@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B22DE6C02A6536EC00FCAFCD /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22DE6BF2A6536EC00FCAFCD /* DatePickerView.swift */; };
 		B23402122A1A5147001FF93E /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23402112A1A5147001FF93E /* RoundedCorner.swift */; };
 		B23402142A1A5162001FF93E /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23402132A1A5162001FF93E /* ViewExtensions.swift */; };
 		B236C66B2A5155C60082BA26 /* CalendarView in Frameworks */ = {isa = PBXBuildFile; productRef = B236C66A2A5155C60082BA26 /* CalendarView */; };
@@ -35,12 +36,12 @@
 		B2F3CEC228F7140F0068C076 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3CEC128F7140F0068C076 /* Strings.swift */; };
 		B2F3CEC428F74B0B0068C076 /* DurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3CEC328F74B0B0068C076 /* DurationView.swift */; };
 		B2FC12AD297178E400DA1F72 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FC12AC297178E400DA1F72 /* DateExtension.swift */; };
-		B2FFD35729255FA200AE0ACF /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD35629255FA200AE0ACF /* PickerView.swift */; };
 		B2FFD359292566EA00AE0ACF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD358292566EA00AE0ACF /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B21B4917299CE78800778326 /* TimeCircleView */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TimeCircleView; sourceTree = "<group>"; };
+		B22DE6BF2A6536EC00FCAFCD /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		B23402112A1A5147001FF93E /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		B23402132A1A5162001FF93E /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		B236C6662A5154580082BA26 /* CalendarView */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CalendarView; sourceTree = "<group>"; };
@@ -69,7 +70,6 @@
 		B2F3CEC128F7140F0068C076 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		B2F3CEC328F74B0B0068C076 /* DurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationView.swift; sourceTree = "<group>"; };
 		B2FC12AC297178E400DA1F72 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
-		B2FFD35629255FA200AE0ACF /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		B2FFD358292566EA00AE0ACF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,11 +157,11 @@
 			isa = PBXGroup;
 			children = (
 				B28C861E292BDF2C00951E7B /* LineView.swift */,
-				B2FFD35629255FA200AE0ACF /* PickerView.swift */,
 				B2F3CEC328F74B0B0068C076 /* DurationView.swift */,
 				B28C860E292BAC6600951E7B /* DatePeriodView.swift */,
 				B28C8612292BB09400951E7B /* DurationButtonView.swift */,
 				B2D36C6F299A711D00F85D0D /* TitleDatePicker.swift */,
+				B22DE6BF2A6536EC00FCAFCD /* DatePickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -338,11 +338,11 @@
 				B2EE30C029911D6A0086C61B /* HistoryViewModel.swift in Sources */,
 				B28C8621292BE07000951E7B /* HistoryView.swift in Sources */,
 				B2AC48DF28F5F9950077DB39 /* FastoApp.swift in Sources */,
+				B22DE6C02A6536EC00FCAFCD /* DatePickerView.swift in Sources */,
 				B2AC491028F5F9EE0077DB39 /* FastView.swift in Sources */,
 				B2D36C70299A711D00F85D0D /* TitleDatePicker.swift in Sources */,
 				B2AC491328F5FBD80077DB39 /* FastViewModel.swift in Sources */,
 				B2AC48E128F5F9950077DB39 /* PersistenceController.swift in Sources */,
-				B2FFD35729255FA200AE0ACF /* PickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,17 +483,17 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = andrii.ponomarov.Fasto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -522,17 +522,17 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = andrii.ponomarov.Fasto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

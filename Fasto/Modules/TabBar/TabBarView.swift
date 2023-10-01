@@ -26,6 +26,7 @@ struct TabBarView: View {
                     Text(Strings.history.localized)
                 }
         }
+        .frame(minWidth: 220, minHeight: 550)
         
     }
 }

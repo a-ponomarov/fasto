@@ -23,6 +23,7 @@ public struct TimeCircleView: View {
         .prepend(Date())
     
     @State private var arcs: [Arc] = []
+    @State private var progressarcs: [Arc] = []
     @State private var time: String = Constants.zeroTime
     
     public init(title: String,
@@ -38,37 +39,48 @@ public struct TimeCircleView: View {
     }
     
     public var body: some View {
-        ZStack {
-            Circle()
-                .strokeBorder(lineWidth: Constants.borderLineWidth)
-                .foregroundColor(backgroundColor)
-                .shadow(radius: Constants.shadowRadius)
-            ForEach(arcs) { arc in
-                ArcShape(model: arc)
-                    .rotation(Angle(degrees: Constants.rotationDegree))
-                    .stroke(Color.accentColor, lineWidth: Constants.arcLineWidth)
+        GeometryReader { proxy in
+            let size = min(proxy.size.width, proxy.size.height)
+            ZStack {
+                let lineWidth = size * 0.035
+                ForEach(arcs) { arc in
+                    ArcShape(model: arc, lineWidth: lineWidth)
+                        .rotation(Angle(degrees: Constants.rotationDegree))
+                        .stroke(backgroundColor, lineWidth: lineWidth)
+                }
+                ForEach(progressarcs) { arc in
+                    ArcShape(model: arc, lineWidth: lineWidth)
+                        .rotation(Angle(degrees: Constants.rotationDegree))
+                        .stroke(Color.yellow, lineWidth: lineWidth)
+                }
+                VStack {
+                    Text(title)
+                        .font(.system(size: size * 0.08))
+                    Text(time)
+                        .font(.system(size: size * 0.13))
+                        .bold()
+                }
+            }.onReceive(timer) { date in
+                arcs = date.arcs(sinceDate: Date().addingTimeInterval(-Double(duration * 3600)), duration: duration)
+                progressarcs = isActive ? date.arcs(sinceDate: sinceDate, duration: duration) : []
+                time = isActive ? date.time(sinceDate: sinceDate) : Constants.zeroTime
             }
-            VStack {
-                Text(title)
-                    .font(.system(size: Constants.titleFontSize))
-                Text(time)
-                    .font(.system(size: Constants.timeFontSize))
-                    .bold()
-            }
-        }.onReceive(timer) { date in
-            arcs = isActive ? date.arcs(sinceDate: sinceDate, duration: duration) : []
-            time = isActive ? date.time(sinceDate: sinceDate) : Constants.zeroTime
         }
     }
     
     private enum Constants {
         static let zeroTime = "00:00:00"
-        static let shadowRadius: CGFloat = 8
-        static let borderLineWidth: CGFloat = 24
-        static let arcLineWidth: CGFloat = 12
         static let rotationDegree: Double = -90
-        static let titleFontSize: CGFloat = 22
-        static let timeFontSize: CGFloat = 44
     }
     
+}
+
+struct TimeCircleView_Previews: PreviewProvider {
+    static var previews: some View {
+        TimeCircleView(title: "You are fasting",
+                       isActive: true,
+                       backgroundColor: .yellow,
+                       sinceDate: Date().addingTimeInterval(-180000),
+                       duration: 128)
+    }
 }

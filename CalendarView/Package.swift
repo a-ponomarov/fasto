@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "CalendarView",
-    platforms: [.iOS(.v16)],
+    platforms: [.iOS(.v16), .macOS(.v12)],
     products: [
         .library(
             name: "CalendarView",

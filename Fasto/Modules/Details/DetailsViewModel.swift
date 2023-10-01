@@ -14,7 +14,7 @@ class DetailsViewModel: ObservableObject, Identifiable {
     private let repository: CoreDataRepository<Fast>
     private let completion: (() -> ())?
     
-    @Published var time: String
+    @Published var time: Int
     @Published var startDate: Date {
         didSet {
             if startDate > Date() { startDate = Date() }
@@ -36,7 +36,7 @@ class DetailsViewModel: ObservableObject, Identifiable {
         self.startDate = startDate
         self.endDate = endDate
         self.completion = completion
-        self.time = endDate.hours(sinceDate: startDate).description
+        self.time = endDate.hours(sinceDate: startDate)
     }
     
     func delete() {
@@ -53,7 +53,7 @@ class DetailsViewModel: ObservableObject, Identifiable {
     }
     
     private func updateTime() {
-        time = endDate.hours(sinceDate: startDate).description
+        time = endDate.hours(sinceDate: startDate)
     }
     
 }
