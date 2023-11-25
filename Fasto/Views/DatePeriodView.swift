@@ -9,27 +9,17 @@ import SwiftUI
 
 struct DatePeriodView: View {
     
-    enum ActionType {
-        case start, end
-    }
-    
-    let startTitle: String
-    let endTitle: String
-    
-    @Binding var startDate: Date
-    @Binding var endDate: Date
-    
-    let action: ((ActionType) -> ())?
+    @ObservedObject var viewModel: FastViewModel
     
     var body: some View {
         HStack {
             Spacer()
-            DatePeriodItemView(title: startTitle, date: $startDate)
-                .onTapGesture { action?(.start) }
+            DatePeriodItemView(title: Strings.startDate.localized, date: $viewModel.startDate)
+                .onTapGesture { viewModel.presentDatePicker = true }
             Spacer()
             Spacer()
-            DatePeriodItemView(title: endTitle, date: $endDate)
-                .onTapGesture { action?(.end) }
+            DatePeriodItemView(title: Strings.goal.localized, date: $viewModel.endDate)
+                .onTapGesture { viewModel.presentDuration = true }
             Spacer()
         }
     }
@@ -53,19 +43,5 @@ private struct DatePeriodItemView: View {
     
     private enum Constants {
         static let fontSize: CGFloat = 20
-    }
-}
-
-struct DatePeriodView_Previews: PreviewProvider {
-    
-    @State static var startDate = Date()
-    @State static var endDate = Date()
-    
-    static var previews: some View {
-        DatePeriodView(startTitle: Strings.startDate.localized,
-                       endTitle: Strings.goal.localized,
-                       startDate: $startDate,
-                       endDate: $endDate,
-                       action: nil)
     }
 }

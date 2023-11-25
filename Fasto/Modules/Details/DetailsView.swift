@@ -27,11 +27,9 @@ struct DetailsView: View {
             }
             .frame(height: Constants.buttonHeight)
             
-            TimeCircleView(title: "128h",
-                           isActive: false,
-                           backgroundColor: .yellow,
-                           sinceDate: viewModel.startDate,
-                           duration: viewModel.time)
+            TimeCircleView(startDate: viewModel.startDate,
+                           currentDate: Date(),
+                           hours: viewModel.time)
             .frame(minWidth: 220, minHeight: 220)
 
             Spacer()

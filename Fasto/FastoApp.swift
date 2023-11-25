@@ -9,12 +9,10 @@ import SwiftUI
 
 @main
 struct FastoApp: App {
-    
-    private let persistenceController = PersistenceController()
 
     var body: some Scene {
         WindowGroup {
-            TabBarView(repository: CoreDataRepository<Fast>(managedObjectContext: persistenceController.viewContext))
+            TabBarView()
         }
     }
 }

@@ -7,13 +7,11 @@
 
 import CoreData
 
-final class PersistenceController {
+struct PersistenceContainer {
 
     private let container: NSPersistentCloudKitContainer
     
-    var viewContext: NSManagedObjectContext {
-        return container.viewContext
-    }
+    var viewContext: NSManagedObjectContext { container.viewContext }
 
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "Fasto")

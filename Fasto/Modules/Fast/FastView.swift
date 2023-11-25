@@ -10,89 +10,54 @@ import TimeCircleView
 
 struct FastView: View {
     
-    @EnvironmentObject var viewModel: FastViewModel
+    @StateObject private var viewModel = FastViewModel()
     
     var body: some View {
-        GeometryReader { proxy in
-            ZStack() {
-                VStack() {
-                    Spacer()
-                    ZStack {
-                        DurationButtonView(duration: $viewModel.duration)
-                            .onTapGesture { viewModel.presentDuration.toggle() }
-                        TimeCircleView(title: viewModel.actionText,
-                                       isActive: viewModel.isActive,
-                                       backgroundColor: Theme.background.color,
-                                       sinceDate: viewModel.startDate,
-                                       duration: viewModel.duration)
-                    }
-                    PeriodView.padding(.bottom)
-                    Text(viewModel.actionButtonText)
-                        .frame(width: proxy.size.width * 0.88, height: Constants.Button.height)
-                        .font(.system(size: Constants.Button.fontSize, weight: .semibold))
-                        .background(Color.accentColor)
-                        .foregroundColor(.black)
-                        .cornerRadius(Constants.Button.cornerRadius)
-                        .onTapGesture {
-                            viewModel.isActive.toggle()
-                        }
-                }.padding()
+        VStack() {
+            Spacer()
+            TimeCircleView(startDate: viewModel.startDate, currentDate: viewModel.now, hours: viewModel.duration)
+            .overlay {
+                TimeText(title: viewModel.actionText, time: viewModel.time)
+                DurationButtonView(duration: $viewModel.duration).onTapGesture { viewModel.presentDuration.toggle() }
             }
-            .onAppear {
-                viewModel.restore()
-            }
-            .sheet(isPresented: $viewModel.presentDuration) {
-                DurationView(width: proxy.size.width,
-                             duration: $viewModel.duration)
-                    .presentationDetents([.height(Constants.sheetHeight)])
-            }
-            .sheet(isPresented: $viewModel.presentDatePicker) {
-                DatePickerView(startDate: $viewModel.startDate)
-            }
+            
+            if viewModel.isActive { DatePeriodView(viewModel: viewModel) }
+            
+            ActionButtonView(text: viewModel.actionButtonText).onTapGesture { viewModel.isActive.toggle() }
         }
-        
-    }
-    
-    var PeriodView: some View {
-        ZStack {
-            let periodView = DatePeriodView(startTitle: Strings.startDate.localized,
-                                            endTitle: Strings.goal.localized,
-                                            startDate: $viewModel.startDate,
-                                            endDate: $viewModel.endDate) {
-                switch $0 {
-                case .start:
-                    viewModel.presentDatePicker = true
-                case .end:
-                    viewModel.presentDuration = true
-                }
-                
-            }
-            if viewModel.isActive {
-                periodView
-            } else {
-                periodView.hidden()
-            }
+        .onAppear { viewModel.restore() }
+        .sheet(isPresented: $viewModel.presentDatePicker) {
+            DatePickerView(startDate: $viewModel.startDate)
+        }
+        .sheet(isPresented: $viewModel.presentDuration) {
+            DurationView(duration: $viewModel.duration).presentationDetents([.height(Constants.sheetHeight)])
         }
     }
     
     private enum Constants {
         static let sheetHeight: CGFloat = 210
-        
-        enum Button {
-            static let height: CGFloat = 55
-            static let fontSize: CGFloat = 28
-            static let cornerRadius: CGFloat = height / 2
-        }
     }
     
 }
 
 struct FastView_Previews: PreviewProvider {
     
-    @StateObject private static var viewModel = FastViewModel(repository: CoreDataRepository<Fast>(managedObjectContext: PersistenceController().viewContext))
-    
     static var previews: some View {
-        FastView().environmentObject(viewModel)
+        FastView()
     }
 }
 
+
+struct TimeText: View {
+    
+    let title: String
+    let time: String
+    
+    var body: some View {
+        VStack {
+            Text(title)
+            Text(time).bold()
+        }
+    }
+    
+}

@@ -29,12 +29,6 @@ class HistoryViewModel: ObservableObject {
         }
     }
     
-    private let repository: CoreDataRepository<Fast>
-    
-    init(repository: CoreDataRepository<Fast>) {
-        self.repository = repository
-    }
-    
     @Published var periodDateInterval = DateInterval()
     
     func fast(date: Date) -> Fast? {
@@ -50,17 +44,15 @@ class HistoryViewModel: ObservableObject {
     func didSelectDate(date: Date) {
         guard let startDate = fast(date: date)?.startDate else { return }
         let predicate = NSPredicate(format: Constants.startDatePredicate, startDate as CVarArg)
-        guard let selectedFast = repository.get(predicate: predicate).first else { return }
-        detailViewModel = DetailsViewModel(fast: selectedFast, repository: repository) {
+        guard let selectedFast = FastRepository.shared.get(predicate: predicate).first else { return }
+        detailViewModel = DetailsViewModel(fast: selectedFast) {
             self.onAppear()
         }
     }
     
     func onAppear() {
-        fasts = repository.get(sortDescriptors:
-                                [NSSortDescriptor(key: Constants.startDateKey,
-                                                  ascending: true)]
-        )
+        let sortDescriptors = [NSSortDescriptor(key: Constants.startDateKey, ascending: true)]
+        fasts = FastRepository.shared.get(sortDescriptors: sortDescriptors)
     }
     
 }

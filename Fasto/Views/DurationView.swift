@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DurationView: View {
-    let width: CGFloat
     @Binding var duration: Int
     @State var hours: Float = 1
     @Environment(\.dismiss) private var dismiss
@@ -19,7 +18,6 @@ struct DurationView: View {
             }.onAppear {
                 hours = Float(duration)
             }
-            .frame(width: width)
         Button("Done") {
             dismiss()
         }

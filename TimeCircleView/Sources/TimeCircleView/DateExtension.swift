@@ -9,21 +9,7 @@ import Foundation
 
 extension Date {
     
-    func seconds(_ sinceDate: Date) -> Int {
-        return Int(timeIntervalSince1970 - sinceDate.timeIntervalSince1970)
-    }
-    
-    func time(sinceDate: Date) -> String {
-        let elapsedSeconds = seconds(sinceDate)
-        let elapsedMinutes = elapsedSeconds / Constants.secondsInMinute
-        let elapsedHours = elapsedSeconds / Constants.secondsInHour
-        let remainedSeconds = elapsedSeconds % Constants.secondsInMinute
-        let remainedMinutes = elapsedMinutes % Constants.minsInHour
-        let seconds = remainedSeconds < Constants.firstTwoDigitNumber ? "0\(remainedSeconds)" : "\(remainedSeconds)"
-        let minutes = remainedMinutes < Constants.firstTwoDigitNumber ? "0\(remainedMinutes)" : "\(remainedMinutes)"
-        let hours = elapsedHours < Constants.firstTwoDigitNumber ? "0\(elapsedHours)" : "\(elapsedHours)"
-        return "\(hours):\(minutes):\(seconds)"
-    }
+    func seconds(_ sinceDate: Date) -> Int { Int(timeIntervalSince1970 - sinceDate.timeIntervalSince1970) }
     
     func arcs(sinceDate: Date, duration: Int) -> [Arc] {
         let elapsedSeconds = seconds(sinceDate)
@@ -51,13 +37,16 @@ extension Date {
         }
     }
     
+    func arcs(duration: Int) -> [Arc] {
+        arcs(sinceDate: minus(hours: duration), duration: duration)
+    }
+    
+    func minus(hours: Int) -> Date { addingTimeInterval(-Double(hours * Constants.secondsInHour)) }
+    
 }
 
 private enum Constants {
     static let hoursInDay: Int = 24
     static let secondsInHour: Int = 3600
     static let deegreesInCircle: Double = 360.0
-    static let secondsInMinute: Int = 60
-    static let minsInHour: Int = 60
-    static let firstTwoDigitNumber: Int = 10
 }

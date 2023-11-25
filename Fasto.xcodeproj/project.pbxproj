@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4980D8E92B11CDCE0028F27C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4980D8E82B11CDCE0028F27C /* StringExtensions.swift */; };
+		49A185E92B11099900EB2930 /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A185E82B11099900EB2930 /* ActionButtonView.swift */; };
 		B22DE6C02A6536EC00FCAFCD /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22DE6BF2A6536EC00FCAFCD /* DatePickerView.swift */; };
 		B23402122A1A5147001FF93E /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23402112A1A5147001FF93E /* RoundedCorner.swift */; };
 		B23402142A1A5162001FF93E /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23402132A1A5162001FF93E /* ViewExtensions.swift */; };
@@ -20,7 +22,7 @@
 		B28C861F292BDF2C00951E7B /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28C861E292BDF2C00951E7B /* LineView.swift */; };
 		B28C8621292BE07000951E7B /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28C8620292BE07000951E7B /* HistoryView.swift */; };
 		B2AC48DF28F5F9950077DB39 /* FastoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC48DE28F5F9950077DB39 /* FastoApp.swift */; };
-		B2AC48E128F5F9950077DB39 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC48E028F5F9950077DB39 /* PersistenceController.swift */; };
+		B2AC48E128F5F9950077DB39 /* PersistenceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC48E028F5F9950077DB39 /* PersistenceContainer.swift */; };
 		B2AC48E428F5F9950077DB39 /* Fasto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2AC48E228F5F9950077DB39 /* Fasto.xcdatamodeld */; };
 		B2AC48E828F5F9970077DB39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2AC48E728F5F9970077DB39 /* Assets.xcassets */; };
 		B2AC48EC28F5F9970077DB39 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2AC48EB28F5F9970077DB39 /* Preview Assets.xcassets */; };
@@ -32,7 +34,7 @@
 		B2D36C70299A711D00F85D0D /* TitleDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D36C6F299A711D00F85D0D /* TitleDatePicker.swift */; };
 		B2EE30BE299113E80086C61B /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EE30BD299113E80086C61B /* TabBarView.swift */; };
 		B2EE30C029911D6A0086C61B /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EE30BF29911D6A0086C61B /* HistoryViewModel.swift */; };
-		B2EE30C2299141160086C61B /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EE30C1299141160086C61B /* CoreDataRepository.swift */; };
+		B2EE30C2299141160086C61B /* FastRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EE30C1299141160086C61B /* FastRepository.swift */; };
 		B2F3CEC228F7140F0068C076 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3CEC128F7140F0068C076 /* Strings.swift */; };
 		B2F3CEC428F74B0B0068C076 /* DurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3CEC328F74B0B0068C076 /* DurationView.swift */; };
 		B2FC12AD297178E400DA1F72 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FC12AC297178E400DA1F72 /* DateExtension.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4980D8E82B11CDCE0028F27C /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		49A185E82B11099900EB2930 /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
 		B21B4917299CE78800778326 /* TimeCircleView */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TimeCircleView; sourceTree = "<group>"; };
 		B22DE6BF2A6536EC00FCAFCD /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		B23402112A1A5147001FF93E /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
@@ -54,7 +58,7 @@
 		B28C8620292BE07000951E7B /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		B2AC48DB28F5F9950077DB39 /* Fasto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fasto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2AC48DE28F5F9950077DB39 /* FastoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastoApp.swift; sourceTree = "<group>"; };
-		B2AC48E028F5F9950077DB39 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		B2AC48E028F5F9950077DB39 /* PersistenceContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceContainer.swift; sourceTree = "<group>"; };
 		B2AC48E328F5F9950077DB39 /* Fasto.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Fasto.xcdatamodel; sourceTree = "<group>"; };
 		B2AC48E728F5F9970077DB39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2AC48EB28F5F9970077DB39 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -66,7 +70,7 @@
 		B2D36C6F299A711D00F85D0D /* TitleDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDatePicker.swift; sourceTree = "<group>"; };
 		B2EE30BD299113E80086C61B /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		B2EE30BF29911D6A0086C61B /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
-		B2EE30C1299141160086C61B /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
+		B2EE30C1299141160086C61B /* FastRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastRepository.swift; sourceTree = "<group>"; };
 		B2F3CEC128F7140F0068C076 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		B2F3CEC328F74B0B0068C076 /* DurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationView.swift; sourceTree = "<group>"; };
 		B2FC12AC297178E400DA1F72 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 				B28C8612292BB09400951E7B /* DurationButtonView.swift */,
 				B2D36C6F299A711D00F85D0D /* TitleDatePicker.swift */,
 				B22DE6BF2A6536EC00FCAFCD /* DatePickerView.swift */,
+				49A185E82B11099900EB2930 /* ActionButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -209,8 +214,8 @@
 		B2D1E2E32923D43D000EAB90 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				B2AC48E028F5F9950077DB39 /* PersistenceController.swift */,
-				B2EE30C1299141160086C61B /* CoreDataRepository.swift */,
+				B2AC48E028F5F9950077DB39 /* PersistenceContainer.swift */,
+				B2EE30C1299141160086C61B /* FastRepository.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				B289EFFC299168B100C6DC3D /* DateFormatterExtension.swift */,
 				B27886A429951F390086B87C /* CalendarExtension.swift */,
 				B23402132A1A5162001FF93E /* ViewExtensions.swift */,
+				4980D8E82B11CDCE0028F27C /* StringExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -317,7 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2EE30C2299141160086C61B /* CoreDataRepository.swift in Sources */,
+				B2EE30C2299141160086C61B /* FastRepository.swift in Sources */,
 				B2FC12AD297178E400DA1F72 /* DateExtension.swift in Sources */,
 				B28C8613292BB09400951E7B /* DurationButtonView.swift in Sources */,
 				B27886A72995363A0086B87C /* Images.swift in Sources */,
@@ -341,8 +347,10 @@
 				B22DE6C02A6536EC00FCAFCD /* DatePickerView.swift in Sources */,
 				B2AC491028F5F9EE0077DB39 /* FastView.swift in Sources */,
 				B2D36C70299A711D00F85D0D /* TitleDatePicker.swift in Sources */,
+				4980D8E92B11CDCE0028F27C /* StringExtensions.swift in Sources */,
+				49A185E92B11099900EB2930 /* ActionButtonView.swift in Sources */,
 				B2AC491328F5FBD80077DB39 /* FastViewModel.swift in Sources */,
-				B2AC48E128F5F9950077DB39 /* PersistenceController.swift in Sources */,
+				B2AC48E128F5F9950077DB39 /* PersistenceContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +475,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fasto/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 67CSC8R9LU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -506,7 +514,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fasto/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 67CSC8R9LU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;

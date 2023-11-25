@@ -13,8 +13,12 @@ class FastViewModel: ObservableObject {
     @Published var presentDuration = false
     @Published var presentDatePicker = false
     
+    @Published var time = String()
+    
     @Published var actionButtonText: String = Strings.start.localized
     @Published var actionText: String = Strings.startFast.localized
+    
+    @Published var now = Date()
     
     @Published var endDate: Date
     
@@ -42,14 +46,11 @@ class FastViewModel: ObservableObject {
         }
     }
     
+    
     private var fast: Fast?
+    private var timer: Timer?
     
-    private let repository: CoreDataRepository<Fast>
-    
-    init(repository: CoreDataRepository<Fast>,
-         startDate: Date = Date(),
-         endDate: Date = Date()) {
-        self.repository = repository
+    init(startDate: Date = Date(), endDate: Date = Date()) {
         self.startDate = startDate
         self.endDate = endDate
     }
@@ -57,22 +58,43 @@ class FastViewModel: ObservableObject {
     func restore() {
         guard fast == nil else { return }
         let predicate = NSPredicate(format: Constants.notFinishedPredicate)
-        fast = repository.get(predicate: predicate).last
+        fast = FastRepository.shared.get(predicate: predicate).last
         
         guard let fast else { return }
         startDate = fast.startDate ?? Date()
         duration = Int(fast.estimatedDuration)
         isActive = true
+        startTimer()
     }
     
     private func start() {
         guard fast == nil else { return }
         startDate = Date()
-        let fast = repository.create()
+        let fast = FastRepository.shared.create()
         fast.startDate = startDate
         fast.estimatedDuration = Int32(duration)
-        repository.save()
+        FastRepository.shared.save()
         self.fast = fast
+        startTimer()
+    }
+    
+    private func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1,
+                                     target: self,
+                                     selector: #selector(timerAction),
+                                     userInfo: nil,
+                                     repeats: true)
+        timer?.fire()
+    }
+    
+    @objc private func timerAction() {
+        now = Date()
+        time = isActive ? now.time(sinceDate: startDate) : .zeroTime
+    }
+    
+    private func stopTimer() {
+        timer?.invalidate()
+        timer = nil
     }
     
     private func end() {
@@ -82,10 +104,11 @@ class FastViewModel: ObservableObject {
         if secondsDuration > Constants.secondsInHour {
             fast.endDate = endDate
         } else {
-            repository.delete(entity: fast)
+            FastRepository.shared.delete(entity: fast)
         }
-        repository.save()
+        FastRepository.shared.save()
         self.fast = nil
+        time = .zeroTime
     }
     
 }

@@ -37,4 +37,23 @@ extension Date {
         Calendar.current.isDate(self, inSameDayAs: day)
     }
     
+    func time(sinceDate: Date) -> String {
+        let elapsedSeconds = Int(timeIntervalSince1970 - sinceDate.timeIntervalSince1970)
+        let elapsedMinutes = elapsedSeconds / Constants.secondsInMinute
+        let elapsedHours = elapsedSeconds / Constants.secondsInHour
+        let remainedSeconds = elapsedSeconds % Constants.secondsInMinute
+        let remainedMinutes = elapsedMinutes % Constants.minsInHour
+        let seconds = remainedSeconds < Constants.firstTwoDigitNumber ? "0\(remainedSeconds)" : "\(remainedSeconds)"
+        let minutes = remainedMinutes < Constants.firstTwoDigitNumber ? "0\(remainedMinutes)" : "\(remainedMinutes)"
+        let hours = elapsedHours < Constants.firstTwoDigitNumber ? "0\(elapsedHours)" : "\(elapsedHours)"
+        return "\(hours):\(minutes):\(seconds)"
+    }
+    
+    private enum Constants {
+        static let secondsInHour: Int = 3600
+        static let secondsInMinute: Int = 60
+        static let minsInHour: Int = 60
+        static let firstTwoDigitNumber: Int = 10
+    }
+    
 }

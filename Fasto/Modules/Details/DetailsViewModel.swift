@@ -11,7 +11,6 @@ import Foundation
 class DetailsViewModel: ObservableObject, Identifiable {
     
     private let fast: Fast
-    private let repository: CoreDataRepository<Fast>
     private let completion: (() -> ())?
     
     @Published var time: Int
@@ -28,9 +27,8 @@ class DetailsViewModel: ObservableObject, Identifiable {
         }
     }
     
-    init(fast: Fast, repository: CoreDataRepository<Fast>, completion: (() -> ())?) {
+    init(fast: Fast, completion: (() -> ())?) {
         self.fast = fast
-        self.repository = repository
         let startDate = fast.startDate ?? Date()
         let endDate = fast.endDate ?? Date()
         self.startDate = startDate
@@ -40,15 +38,15 @@ class DetailsViewModel: ObservableObject, Identifiable {
     }
     
     func delete() {
-        repository.delete(entity: fast)
-        repository.save()
+        FastRepository.shared.delete(entity: fast)
+        FastRepository.shared.save()
         completion?()
     }
 
     func save() {
         fast.startDate = startDate
         fast.endDate = endDate
-        repository.save()
+        FastRepository.shared.save()
         completion?()
     }
     

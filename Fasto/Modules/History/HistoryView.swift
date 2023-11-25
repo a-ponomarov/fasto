@@ -10,7 +10,7 @@ import CalendarView
 
 struct HistoryView: View {
     
-    @EnvironmentObject var viewModel: HistoryViewModel
+    @StateObject private var viewModel = HistoryViewModel()
     
     var body: some View {
         GeometryReader { proxy in
@@ -49,6 +49,7 @@ struct HistoryView: View {
 struct HistoryCalendar_Previews: PreviewProvider {
     
     static var previews: some View {
-        HistoryView().environmentObject(HistoryViewModel(repository: CoreDataRepository<Fast>(managedObjectContext: PersistenceController().viewContext)))
+        HistoryView()
     }
+    
 }

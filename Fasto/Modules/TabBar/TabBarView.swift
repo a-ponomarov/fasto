@@ -8,31 +8,59 @@
 import SwiftUI
 
 struct TabBarView: View {
-
-    let repository: CoreDataRepository<Fast>
     
     var body: some View {
         TabView {
             FastView()
-                .environmentObject(FastViewModel(repository: repository))
-                .tabItem {
-                    Image(systemName: SystemImage.moon)
-                    Text(Strings.today.localized)
-                }
+                .tabItem { TabItemView(.fast) }
             HistoryView()
-                .environmentObject(HistoryViewModel(repository: repository))
-                .tabItem {
-                    Image(systemName: SystemImage.calendar)
-                    Text(Strings.history.localized)
-                }
+                .tabItem { TabItemView(.history) }
         }
         .frame(minWidth: 220, minHeight: 550)
-        
     }
+}
+
+private struct TabItemView: View {
+    
+    private let tab: Tab
+    
+    init(_ tab: Tab) {
+        self.tab = tab
+    }
+    
+    var body: some View {
+        Image(systemName: tab.iconName)
+        Text(tab.title)
+    }
+    
+}
+
+private enum Tab {
+    
+    case fast, history
+    
+    var iconName: String {
+        switch self {
+        case .fast:
+            return SystemImage.moon
+        case .history:
+            return SystemImage.calendar
+        }
+    }
+    
+    var title: String {
+        switch self {
+        case .fast:
+            return Strings.today.localized
+        case .history:
+            return Strings.history.localized
+        }
+    }
+    
 }
 
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarView(repository: CoreDataRepository<Fast>(managedObjectContext: PersistenceController().viewContext))
+        TabBarView()
     }
 }
